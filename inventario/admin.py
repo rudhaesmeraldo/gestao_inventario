@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Produtom MovimentacaoEstoque
+from .models import Produto, MovimentacaoEstoque
 
 @admin.register(Produto)
 class ProdutoAdmin(admin.ModelAdmin):
