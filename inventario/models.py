@@ -47,8 +47,8 @@ class MovimentacaoEstoque(models.Model):
             if self.produto.quantidade >= self.quantidade:
                 self.produto.quantidade -= self.quantidade
             else:
-                raise ValidationError('Quantidade insuficiente em estoque para a saída!')
+                raise ValidationError('Quantidade insuficiente no estoque!')
         
         self.produto.save()
         super().save(*args, **kwargs)
-    
+
