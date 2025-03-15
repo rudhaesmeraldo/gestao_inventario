@@ -1,0 +1,177 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos para h1 */
+h1 {
+    font-size: 2.5rem; /* Tamanho reduzido para mais legível */
+    font-weight: 600;
+    color: #333; /* Cor escura para boa leitura */
+    text-align: center;
+    margin: 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px; /* Menos espaçamento entre letras */
+}
+
+/* Estilo para h1 com borda inferior */
+h1::after {
+    content: '';
+    display: block;
+    width: 60px; /* Largura aumentada */
+    height: 3px;
+    background-color: #4CAF50; /* Cor mais suave */
+    margin: 10px auto 0;
+}
+
+/* Estilos para h2 */
+h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #444; /* Cor um pouco mais suave */
+    text-align: left;
+    margin: 20px 0 1px 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px; /* Menos espaçamento entre letras */
+}
+
+/* Layout da navegação */
+nav {
+    background: #2C3E50; /* Cor escura, mas menos agressiva */
+    padding: 12px 24px; /* Maior padding para uma navegação mais espaçada */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra mais suave */
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    width: 90%; /* Definido um tamanho de largura maior */
+    max-width: 960px; /* Largura máxima para limitar a expansão */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px; /* Aumento do padding para mais conforto */
+    font-weight: 500; /* Peso de fonte mais leve */
+    font-size: 1rem;
+    border-radius: 6px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+nav ul li a:hover {
+    background: #16A085; /* Cor mais suave para o hover */
+    transform: translateY(-2px); /* Pequeno efeito de elevação */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+    }
+
+    nav input[type="checkbox"] {
+        display: none;
+    }
+
+    nav label {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    nav label span {
+        width: 25px;
+        height: 3px;
+        background: white;
+        margin: 5px 0;
+        display: block;
+        transition: all 0.3s;
+    }
+
+    nav input[type="checkbox"]:checked ~ ul {
+        display: flex;
+    }
+
+    nav input[type="checkbox"]:checked ~ label span:nth-child(1) {
+        transform: rotate(45deg);
+        top: 7px;
+    }
+
+    nav input[type="checkbox"]:checked ~ label span:nth-child(2) {
+        opacity: 0;
+    }
+
+    nav input[type="checkbox"]:checked ~ label span:nth-child(3) {
+        transform: rotate(-45deg);
+        top: -7px;
+    }
+}
+
+/* Estilos da tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 5px;
+}
+
+table th, table td {
+    padding: 14px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table th {
+    background-color: #2C3E50; /* Cor de fundo escura */
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: #ecf0f1; /* Cor suave para alternar linhas */
+}
+
+table tr:hover {
+    background-color: #bdc3c7; /* Cor ao passar o mouse */
+}
+
+/* Estilos dos botões */
+.btn {
+    padding: 10px 18px;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.btn-rgtr {
+    background-color: #f39c12; /* Cor mais suave para ação */
+}
+
+.btn-add {
+    background-color: #27ae60; /* Cor mais calma para adicionar */
+}
+
+.btn:hover {
+    opacity: 0.8;
+    transform: translateY(-2px); /* Pequeno efeito de elevação */
+}
