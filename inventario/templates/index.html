@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Estoque{% endblock %}
+{% block content %}
+    <h2>Estoque</h2>
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Quantidade</th>
+            <th>Preço</th>
+            <th>Categoria</th>
+            <th>Ações</th>
+        </tr>
+        {% for produto in produtos %}
+        <tr>
+            <td>{{ produto.nome }}</td>
+            <td>{{ produto.quantidade }}</td>
+            <td>R$ {{ produto.preco }}</td>
+            <td>{{ produto.categoria.nome }}</td>
+            <td>
+                <a href="{% url 'registrar_saida' produto.id %}" class='btn btn-rgtr'>Registrar Saída</a>
+                <a href="{% url 'adicionar_produto' %}" class='btn btn-add'>Adicionar Produto</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
