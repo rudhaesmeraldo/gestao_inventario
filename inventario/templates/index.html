@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 {% block title %}Estoque{% endblock %}
 {% block content %}
-    <h2>Estoque</h2>
+    <div class="adicionar-produto-container">
+        <h2>Estoque</h2>
+        <a href="{% url 'adicionar_produto' %}" class='btn btn-add'>Adicionar Produto</a>
+    </div>
+
     <table>
         <tr>
             <th>Nome</th>
@@ -18,9 +22,7 @@
             <td>{{ produto.categoria.nome }}</td>
             <td>
                 <a href="{% url 'registrar_saida' produto.id %}" class='btn btn-rgtr'>Registrar Saída</a>
-                <a href="{% url 'adicionar_produto' %}" class='btn btn-add'>Adicionar Produto</a>
             </td>
-        </tr>
         {% endfor %}
     </table>
 {% endblock %}
