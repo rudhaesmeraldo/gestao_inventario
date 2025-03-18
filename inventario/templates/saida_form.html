@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ titulo }}{% endblock %}
+{% block content %}
+    <h2 class="titulo-centralizado">{{ titulo }}</h2>
+
+    <div class="form-container">
+        <p><strong>Produto:</strong> {{ produto.nome }}</p>
+        <p><strong>Quantidade disponível:</strong> {{ produto.quantidade }}</p>
+
+        <form method="post">
+            {% csrf_token %}
+            <label for="quantidade">Quantidade para saída:</label>
+            <input type="number" id="quantidade" name="quantidade" min="1" max="{{ produto.quantidade }}" required>
+            <button type="submit" class="btn-salvar">Registrar Saída</button>
+        </form>
+    </div>
+{% endblock %}

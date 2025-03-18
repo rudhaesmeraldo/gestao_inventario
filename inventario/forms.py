@@ -10,7 +10,7 @@ class ProdutoForm(forms.ModelForm):
             'descricao': 'Descrição',
             'quantidade': 'Quantidade em Estoque',
             'preco': 'Preço (R$)',
-            'fornecedor': 'fornecedor',
+            'fornecedor': 'Fornecedor',
             'categoria': 'Categoria',
         }
         widgets = {

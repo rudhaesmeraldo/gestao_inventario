@@ -8,7 +8,7 @@ def estoque_view(request):
     return render(request, 'index.html', {'produtos': produtos})
 
 def movimentacoes_view(request):
-    movimentacoes = MovimentacaoEstoque.objects.all()
+    movimentacoes = MovimentacaoEstoque.objects.all().order_by('-data')
     return render(request, 'movimentacoes.html', {'movimentacoes':movimentacoes})
 
 def adicionar_produto(request):
@@ -28,13 +28,19 @@ def registrar_saida(request, produto_id):
 
     if request.method == 'POST':
         quantidade = int(request.POST.get('quantidade', 0))
-        if quantidade > 0 and quantidade <= produto.quantidade:
-            produto.quantidade -= quantidade
-            produto.save()
+        if quantidade > 0:
             MovimentacaoEstoque.objects.create(
-                produto=produto, tipo='saida', quantidade=quantidade, responsavel=request.user
+                produto=produto,
+                nome_produto=produto.nome,
+                tipo='saida',
+                quantidade=quantidade,
+                responsavel=request.user
             )
             return redirect('estoque')
-    
-    return render(request, 'produto_form.html', {'produto': produto, 'titulo': 'Registrar Saída'}) 
+
+    return render(request, 'saida_form.html', {'produto': produto, 'titulo': 'Registrar Saída'}) 
+
+
+
+
         
