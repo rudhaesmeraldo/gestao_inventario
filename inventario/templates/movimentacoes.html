@@ -7,16 +7,16 @@
             <th>Produto</th>
             <th>Tipo</th>
             <th>Quantidade</th>
-            <th>Data</th>
             <th>Responsável</th>
+            <th>Data</th>
         </tr>
         {% for movimentacao in movimentacoes %}
         <tr>
-            <td>{{ movimentacao.produto.nome }}</td>
+            <td>{{ movimentacao.nome_produto }}</td>
             <td>{{ movimentacao.tipo }}</td>
             <td>{{ movimentacao.quantidade }}</td>
-            <td>{{ movimentacao.data }}</td>
-            <td>{{ movimentacao.responsavel.username }}</td>
+            <td>{{ movimentacao.responsavel.username  }}</td>
+            <td>{{ movimentacao.data|date:"d/m/Y H:i" }}</td>
         </tr>
         {% endfor %}
     </table>
